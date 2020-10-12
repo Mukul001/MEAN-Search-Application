@@ -1,0 +1,36 @@
+<div class="col s5">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+    <div class="row">
+      <div class="input-field">
+        <label>Name :</label>
+        <input type="text" name="fullName" #name="ngModel" [(ngModel)]="userService.selectedUser.fullName" placeholder="Enter full name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+          <label>Mobile No :</label>
+        <input type="text" name="mobileNo" #name="ngModel" [(ngModel)]="userService.selectedUser.mobileNo" placeholder="Enter Mobile number" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+          <label> Email:</label>
+        <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Enter Email">
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <input type="hidden" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" placeholder="Enter Password">
+      </div>
+    </div>
+    <div>
+      <div class="text-center">
+        <input  type="button" (click)="resetForm(userForm)" value="Reset">
+        <!-- <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button> -->
+        <input type="button" [disabled]="!userForm.valid" (click)="onSubmit(userForm)" value="Submit" routerLink="/userprofile" routerLinkActive="active"/>
+      </div>
+    </div>
+  </form>
+</div>
